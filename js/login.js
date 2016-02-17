@@ -27,7 +27,7 @@ function signUpUser() {
         sessionStorage.user = userName;
         sessionStorage.pw = passWord;
         
-        window.location.href = 'rrecatto.github.io';
+        window.location.href = 'chaopan.github.io';
     }
         
 }

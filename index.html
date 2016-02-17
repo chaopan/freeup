@@ -1,1 +1,53 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>uDown</title>
+    <!-- Link Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    
+      
+      <div style="text-align:center;">        
+        <img src="img/logo.jpg">
+      </div>
+      
+        <div class="container">
+      <br><br>
+      <form class="form-signin">
+          <label for="inputEmail">Email address:</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+          <br>
+          <label for="inputPassword">Password:</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      </form>
+          <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+          </div>
+          <br>
+          <div style="text-align:center;">
+            <button onclick="authorizeLogin()" class="btn btn-md btn-primary" type="submit">Sign in</button>
+          </div>
+
+      </div>
+      <br><br>
+      <p style="text-align: center;">Don't Have an Account?</p>
+
+       <div style="text-align:center;">
+        <a href="register.html" style="text-align: center;">Register</a>
+      </div>
+      <br>
+      <div id="logError"></div>
+    <!--Bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/handlebars-v4.0.5.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>

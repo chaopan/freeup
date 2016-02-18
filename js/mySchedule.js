@@ -20,9 +20,11 @@ var jsonObject = '{ "friend1" : { \
                 }';
 //var data = JSON.parse(jsonObject);
 //sessionStorage.setItem('example', jsonObject);
-var currObj = sessionStorage.getItem("currUser")
-console.log("currObj is "+currObj);
-var exampleData = sessionStorage.getItem(currObj);
+var currObj = sessionStorage.getItem("currUser");
+var username = currObj;
+var key = username + "-data";
+console.log("key is "+key);
+var exampleData = sessionStorage.getItem(key);
 var data = JSON.parse(exampleData);
 
 
@@ -116,6 +118,8 @@ function generateBlocks(day){
     var stackCount = 0;
     
     var shortenedDay = day.substring(0,3); // ex: "sunday" -> "sun"
+    
+    
     for(var friend in data){
         if(data[friend][shortenedDay].length == 0){
             console.log("no blocks need coloring");

@@ -1,12 +1,21 @@
 'use strict';
+//GLOBALS
+
 
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
+    
 	initializePageForCS();
+    
+
+    
 })
+
+function getUserData(){
+
+}
+
 var day;
-var bIndex;
-var eIndex;
 function initializePageForCS() {
 	$('#submitButn').click(inputTime);
 	$('.dropdown-toggle').dropdown();
@@ -28,7 +37,9 @@ function validateForm(){
     var start_digit = translateTime(start);
     var end_digit = translateTime(end);
     console.log( start_digit + " , " + end_digit );
-    inputTime('friend1',day,start_digit, end_digit);
+    
+    var current_username = sessionStorage.getItem('currUser');
+    inputTime(current_username, day, start_digit, end_digit);
 }
 
 
@@ -46,10 +57,8 @@ function translateTime(timeString){
 }
 
 function inputTime(name,day,start,end){
-    console.log("name"+name );
-    var currObj = sessionStorage.getItem("currUser")
-    console.log("currObj is "+ currObj);
-    if(sessionStorage.getItem(currObj) === null){
+
+    if(sessionStorage.getItem(name + '-data') === null){ //this will never happen
         console.log("no data in session storage");
         var jsonObject = '{ "friend1" : { \
                                 "mon" : [], \
@@ -60,11 +69,11 @@ function inputTime(name,day,start,end){
                                 "sat" : [], \
                                 "sun" : []  \
                                  } \
-                           }'
+                           }';
         console.log("created new jsonObject");
     }
     else{
-        var jsonObject = sessionStorage.getItem(currObj);
+        var jsonObject = sessionStorage.getItem(name + '-data');
     }
     var data = JSON.parse(jsonObject);
     console.log("data[name] is "+ data[name]);
@@ -80,7 +89,7 @@ function inputTime(name,day,start,end){
     newArray.sort();
     data[name][day] = newArray;
     
-    sessionStorage.setItem(currObj,  JSON.stringify(data));
+    sessionStorage.setItem(name + '-data',  JSON.stringify(data));
     window.location.href = 'mySchedule.html';
 }
 

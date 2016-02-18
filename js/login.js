@@ -9,6 +9,8 @@ function initializePage() {
 }
 
 
+jsonTemplate = '{ "mon" : [], "tue" : [], "wed" : [], "thu" : [], "fri" : [], "sat" : [], "sun" : [] }'
+
 function signUpUser() {
 
     var userName = $('#regName').val();
@@ -41,9 +43,9 @@ function signUpUser() {
 
 
 function authorizeLogin() {
-     var userName = $('#inputName').val();
-            var passWord = $('#inputPassword').val();
-            var pw= sessionStorage.getItem(userName);
+    var userName = $('#inputName').val();
+    var passWord = $('#inputPassword').val();
+    var pw = sessionStorage.getItem(userName);
 
     
     
@@ -58,11 +60,17 @@ function authorizeLogin() {
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: EITHER USERNAME OR PASSWORD INCORRECT</p>');
     }
     else {
-           
-            sessionStorage.setItem("currUser",userName+passWord);
-     
             console.log("user name is : " + userName+" passWord is : " + pw);
-            window.location.href = 'mySchedule.html';
+            sessionStorage.setItem("currUser",userName);
+            if(sessionStorage[userName+"-data"]){
+                window.location.href = 'mySchedule.html';
+            }
+            else{
+                jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
+                sessionStorage.setItem(userName+"-data", jsonObject);
+                window.location.href = "mySchedule.html"; //<--- change this to the landing page
+            }
+            
     }
     
            

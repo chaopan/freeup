@@ -1,6 +1,10 @@
 $(document).ready(function() {
-    
-})
+    $("#combineButton").click(function(){
+        if(combineFunction() === -1){
+            alert("combine failed!");
+        }
+    });
+});
 
 /*
 
@@ -28,43 +32,29 @@ var jsonObject = '{ "friend1" : { \
 function combineFunction() {
     //this is hardcoded, make this not hardcoded later
     //get currennt user's  json object name
-    var currObj = sessionStorage.getItem("currUser");
-    console.log
+    var current_user = sessionStorage.getItem("currUser");
 
-    if(sessionStorage.getItem(currObj) === null){
-    console.log("no data in session storage");
-    var jsonObject = '{ "friend1" : { \
-                            "mon" : [], \
-                            "tue" : [], \
-                            "wed" : [], \
-                            "thu" : [], \
-                            "fri" : [], \
-                            "sat" : [], \
-                            "sun" : []  \
-                             } \
-                       }'
-    console.log("created new jsonObject");
-    sessionStorage.setItem(currObj,jsonObject)
-    var exampleData = sessionStorage.getItem(currObj,jsonObject);
+
+
+    var userData = sessionStorage.getItem(current_user + '-data');
+
+    
+    console.log("exampleData = " + userData);
+    console.log(typeof(userData));
+    var friendUsername = $("#friendUsername").val();
+    if(sessionStorage[friendUsername+"-data"]){
+        var friendData = sessionStorage.getItem(friendUsername+"-data");
+        var friendData = friendData.substring(1,friendData.length-1);
+        var newData = userData.substring(0, userData.length - 1) + ',' + friendData + '}';
+    } else {
+        alert("No user found. Please try again.");
     }
-    else{
-        var exampleData = sessionStorage.getItem(currObj);
-    }
-    console.log("exampleData = " + exampleData);
-    console.log(typeof(exampleData));
-    var friendToCombineWith = ' , "friend2" : { \
-                                "mon" : [0,1,2,5,6,7,10,11,12,13], \
-                                "tue" : [0,3,4,5], \
-                                "wed" : [1,4,2], \
-                                "thu" : [8], \
-                                "fri" : [7], \
-                                "sat" : [6], \
-                                "sun" : [5]  \
-                                }';
-    var newData = exampleData.substring(0, exampleData.length - 1) + friendToCombineWith + '}'; //appending strings
+    
+    
+    
     console.log(newData);
     
-    sessionStorage.setItem(currObj , newData);
+    sessionStorage.setItem(current_user + '-data' , newData);
     /*var email = $('#combineEmail');
     
     if(email != "friend1") {
@@ -82,29 +72,5 @@ function combineFunction() {
                                 "sun" : [5]  \
                                 },';
     }*/
-    
-
-    
-    
-    var jsonObject = '{ "friend1" : { \
-                                "mon" : [0,1,2,5,9,10], \
-                                "tue" : [0,3,4,5], \
-                                "wed" : [1,4,2], \
-                                "thu" : [8], \
-                                "fri" : [7], \
-                                "sat" : [6], \
-                                "sun" : [5]  \
-                                }, \
-                    "friend2" : { \
-                                "mon" : [0,1,6], \
-                                "tue" : [0,1,2], \
-                                "wed" : [1,4,2], \
-                                "thu" : [8], \
-                                "fri" : [7], \
-                                "sat" : [6], \
-                                "sun" : [5] \
-                                } \
-                }';
-                
     //sessionStorage.setItem('example', newData);
 }

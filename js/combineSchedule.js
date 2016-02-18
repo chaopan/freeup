@@ -55,6 +55,8 @@ function combineFunction() {
     console.log(newData);
     
     sessionStorage.setItem(current_user + '-data' , newData);
+    
+    $('#comFeedback').html('<p style="color:green;text-align:center;">Successfully Added Friend!</p>');
     /*var email = $('#combineEmail');
     
     if(email != "friend1") {

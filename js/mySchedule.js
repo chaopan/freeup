@@ -20,7 +20,9 @@ var jsonObject = '{ "friend1" : { \
                 }';
 //var data = JSON.parse(jsonObject);
 //sessionStorage.setItem('example', jsonObject);
-var exampleData = sessionStorage.getItem('example');
+var currObj = sessionStorage.getItem("currUser")
+console.log("currObj is "+currObj);
+var exampleData = sessionStorage.getItem(currObj);
 var data = JSON.parse(exampleData);
 
 

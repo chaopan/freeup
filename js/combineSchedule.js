@@ -27,7 +27,11 @@ var jsonObject = '{ "friend1" : { \
 
 function combineFunction() {
     //this is hardcoded, make this not hardcoded later
-    if(sessionStorage.getItem('example') === null){
+    //get currennt user's  json object name
+    var currObj = sessionStorage.getItem("currUser");
+    console.log
+
+    if(sessionStorage.getItem(currObj) === null){
     console.log("no data in session storage");
     var jsonObject = '{ "friend1" : { \
                             "mon" : [], \
@@ -40,11 +44,11 @@ function combineFunction() {
                              } \
                        }'
     console.log("created new jsonObject");
-    sessionStorage.setItem('example',jsonObject)
-    var exampleData = sessionStorage.getItem('example',jsonObject);
+    sessionStorage.setItem(currObj,jsonObject)
+    var exampleData = sessionStorage.getItem(currObj,jsonObject);
     }
     else{
-        var exampleData = sessionStorage.getItem('example');
+        var exampleData = sessionStorage.getItem(currObj);
     }
     console.log("exampleData = " + exampleData);
     console.log(typeof(exampleData));
@@ -60,7 +64,7 @@ function combineFunction() {
     var newData = exampleData.substring(0, exampleData.length - 1) + friendToCombineWith + '}'; //appending strings
     console.log(newData);
     
-    sessionStorage.setItem('example' , newData);
+    sessionStorage.setItem(currObj , newData);
     /*var email = $('#combineEmail');
     
     if(email != "friend1") {

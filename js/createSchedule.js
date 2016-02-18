@@ -46,7 +46,10 @@ function translateTime(timeString){
 }
 
 function inputTime(name,day,start,end){
-    if(sessionStorage.getItem('example') === null){
+    console.log("name"+name );
+    var currObj = sessionStorage.getItem("currUser")
+    console.log("currObj is "+ currObj);
+    if(sessionStorage.getItem(currObj) === null){
         console.log("no data in session storage");
         var jsonObject = '{ "friend1" : { \
                                 "mon" : [], \
@@ -61,10 +64,14 @@ function inputTime(name,day,start,end){
         console.log("created new jsonObject");
     }
     else{
-        var jsonObject = sessionStorage.getItem('example');
+        var jsonObject = sessionStorage.getItem(currObj);
     }
     var data = JSON.parse(jsonObject);
+    console.log("data[name] is "+ data[name]);
+    console.log("data[name][day] is "+ data[name][day]);
     var newArray = data[name][day];
+
+    
     var i = start;
     for (var i = start; i < end; i++ ){
           newArray.push(i);
@@ -73,7 +80,8 @@ function inputTime(name,day,start,end){
     newArray.sort();
     data[name][day] = newArray;
     
-    sessionStorage.setItem('example',  JSON.stringify(data));
+    sessionStorage.setItem(currObj,  JSON.stringify(data));
+    window.location.href = 'mySchedule.html';
 }
 
 function removeDuplicates(duplicatesArray){
@@ -81,4 +89,8 @@ function removeDuplicates(duplicatesArray){
     return duplicatesArray.indexOf(elem) == pos;
     });
     return uniqueArray;
+}
+function cancel(){
+
+    window.location.href = 'mySchedule.html';
 }

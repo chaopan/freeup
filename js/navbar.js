@@ -11,6 +11,6 @@ function initializeNav() {
 
 function logout() {
  
-    window.location.href = 'chaopan.github.io';
+    window.location.href = 'index.html';
     
 }

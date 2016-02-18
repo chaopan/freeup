@@ -31,16 +31,15 @@
                         </div>
                         <br>
                         <label for="startTime">Begin at:</label>
-                        <input type="time" id="startTime" class="form-control" step="1800" value="14:00" name="start" required autofocus>
+                        <input type="time" id="startTime" class="form-control" step="1800" value="07:00" name="start" required autofocus>
                         <br>
                         <label for="endTime">End at:</label>
-                        <input type="time" id="endTime" class="form-control" name="end" step="1800" value="15:00" required>
+                        <input type="time" id="endTime" class="form-control" name="end" step="1800" value="08:00" required>
                         <br>
                         <input type="button" class="btn btn-primary" id="submitButton" value="Submit" onclick="validateForm();">
                         
-                        <button class="btn btn-md btn-primary" type="cancel" id ="cancelButn"  onclick="window.location='http://rrecatto.github.io/mySchedule';">Cancel</button>
-                        
                     </form>
+                     <button class="btn btn-md btn-primary" type="cancel" id ="cancelButn"  onclick="cancel()">Cancel</button>
                    
 
           </div>

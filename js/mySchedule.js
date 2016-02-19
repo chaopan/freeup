@@ -22,7 +22,7 @@
 //sessionStorage.setItem('example', jsonObject);
 var current_username = sessionStorage.getItem("currUser");
 var exampleData = sessionStorage.getItem(current_username + '-data');
-var data = JSON.parse(exampleData);
+var scheduleData = JSON.parse(exampleData);
 
 
                 
@@ -30,6 +30,8 @@ var data = JSON.parse(exampleData);
 $(document).ready(function() {
 	console.log("Javascript connected!");
     
+    
+    drawFriends();
     drawTables();
     //draw all pages simultaneously
     generateBlocks("monday");
@@ -42,20 +44,102 @@ $(document).ready(function() {
     
     $(".time-table td").append("</br>"); //formatting is hell
     
-    //on tab switch, draw according to the day of tab
+    //if($("#friend-0").length != 0) {  //check if id exists
+    $('#friend-0').change(function() {
+        var friend_checked = $(this).prop('checked');
+        if(friend_checked){
+            $(".stack0").fadeIn();
+        } else {
+            $(".stack0").fadeOut();
+        }
+    });
+    
+    $('#friend-1').change(function() {
+        var friend_checked = $(this).prop('checked');
+        if(friend_checked){
+            $(".stack1").fadeIn();
+        } else {
+            $(".stack1").fadeOut();
+        }
+    });
+    
+    $('#friend-2').change(function() {
+        var friend_checked = $(this).prop('checked');
+        if(friend_checked){
+            $(".stack2").fadeIn();
+        } else {
+            $(".stack2").fadeOut();
+        }
+    });
+    
+    $('#friend-3').change(function() {
+        var friend_checked = $(this).prop('checked');
+        if(friend_checked){
+            $(".stack3").fadeIn();
+        } else {
+            $(".stack3").fadeOut();
+        }
+    });
+    
+    $('#friend-4').change(function() {
+        var friend_checked = $(this).prop('checked');
+        if(friend_checked){
+            $(".stack4").fadeIn();
+        } else {
+            $(".stack4").fadeOut();
+        }
+    });
+    
+    
+    //need this to display tabs on tab-switch
     $(document).on( 'shown.bs.tab', 'a[data-toggle="pill"]', function (e) {
     console.log(e.target.id);
     });
 
 });
 
+
+
+function drawFriends(){
+    Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+        if(v1 === v2) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+    
+    
+    
+    Handlebars.registerHelper('pairs', function(context, options) {
+        var cells = [], html, k;
+        for (k in context) {
+            if (context.hasOwnProperty(k)) {
+                html = options.fn({
+                    key: k,
+                    value: context[k]
+                }); 
+                cells.push(html);
+            }
+        }
+        return cells.join('');
+    });
+    var source = $("#friendlist-template").html();
+    var template = Handlebars.compile(source);
+    var context = { 
+        friends : scheduleData
+    }
+    var new_html = template(context);
+    
+    $("#friend-filter").html(new_html);
+}
+
 //handlebars stuff
 function drawTables(){
     //use handlebars to generate a table
     var source = $("#table-template").html();
     var template = Handlebars.compile(source);
-    var context = { //move this to a different file or something.
-        timeSlots : timeContent
+    var context = { 
+        timeSlots : MStimeContent
     }
     var new_html = template(context);
     
@@ -113,19 +197,27 @@ function generateBlocks(day){
     console.log("generating day: " + day);
     //how many blocks are currently stacked
     var stackCount = 0;
-    
     var shortenedDay = day.substring(0,3); // ex: "sunday" -> "sun"
     
     
-    for(var friend in data){
-        if(data[friend][shortenedDay].length == 0){
+    for(var friend in scheduleData){
+        if(scheduleData[friend][shortenedDay].length == 0){
             console.log("no blocks need coloring");
             stackCount++;
         }
         else{
-            fillBlocks(day,stackCount,data[friend][shortenedDay]);
+            fillBlocks(day,stackCount,scheduleData[friend][shortenedDay]);
             stackCount++;
         }
     }
+}
+
+
+
+function toggleFriend(){
+    
+    
+    
+    
 }
 

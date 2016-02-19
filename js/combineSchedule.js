@@ -28,6 +28,11 @@ var jsonObject = '{ "friend1" : { \
                                 } \
                 }';
 */
+function firstObj(obj) {
+    for (var a in obj) {
+        return a;        
+    }
+}
 
 function combineFunction() {
     //this is hardcoded, make this not hardcoded later
@@ -36,25 +41,32 @@ function combineFunction() {
 
 
 
-    var userData = sessionStorage.getItem(current_user + '-data');
-
+    var userJson = sessionStorage.getItem(current_user + '-data');
+    var userData = JSON.parse(userJson);
     
     console.log("exampleData = " + userData);
     console.log(typeof(userData));
     var friendUsername = $("#friendUsername").val();
-    if(sessionStorage[friendUsername+"-data"]){
-        var friendData = sessionStorage.getItem(friendUsername+"-data");
-        var friendData = friendData.substring(1,friendData.length-1);
-        var newData = userData.substring(0, userData.length - 1) + ',' + friendData + '}';
+    if(sessionStorage.getItem(friendUsername + '-data') != null){
+        var friendJson = sessionStorage.getItem(friendUsername+"-data");
+        var friendData = JSON.parse(friendJson);
+        //console.log(JSON.stringify(friendData));
+        userData[friendUsername] = friendData[friendUsername];
+        
+        /* var friendData = friendData.substring(1,friendData.length-1);
+        var newData = userData.substring(0, userData.length - 1) + ',' + friendData + '}'; */
+        
+        var newData = JSON.stringify(userData);
+        sessionStorage.setItem(current_user + '-data' , newData);
     } else {
         alert("No user found. Please try again.");
     }
     
     
     
-    console.log(newData);
+
     
-    sessionStorage.setItem(current_user + '-data' , newData);
+    
     
     $('#comFeedback').html('<p style="color:green;text-align:center;">Successfully Added Friend!</p>');
     /*var email = $('#combineEmail');

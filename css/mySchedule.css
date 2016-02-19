@@ -1,41 +1,3 @@
-.eventblock {
-    margin: auto;
-    width: 70%;
-    border: 1px solid #73AD21;
-    padding: 10px;
-    }
-    
-    
-    .day {
-    text-align:center;
-    margin: auto;
-    width: 30%;
-    border: 3px solid #73AD21;
-    padding: 10px;
-    }
-    .times {
-    padding-right: 20px
-    }
-    
-    .taken {
-    background: rgba(255,0,0,0.3);
-    }
-    
-    ul#tabs { display:table; table-layout: fixed; margin-bottom: -1px; margin:auto; width: 90%; padding: 0px}
-    ul#tabs li { display: table-cell;
-    text-align:center;
-    border: 1px;
-    background-color: #dedbde; 
-    border: 1px solid #c9c3ba; 
-    border-bottom: none;
-    }
-    
-    ul#tabs li a { color: #42454a; text-decoration: none; }
-    ul#tabs li a.selected { color: #000; background-color: #fff0ee; font-weight: bold;}
-    ul#tabs li :hover { background-color: #f1f0ee; }
-    div.tabContent { border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee; margin: auto; width: 90%;}
-    div.tabContent.hide { display: none; }
-    
 
 
 .nav-justified > li {
@@ -45,38 +7,49 @@
       font-size: 90%;
       font-weight: bold;
 }
+#friend-filter{
+    margin:15px;
+}
+
+#friend-filter ul {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+#friend-filter ul li { display: inline; }
+
+
+.content-wrapper{
+    border: 1px solid rgba(140, 140, 140, .5);
+    border-radius: 5px;
+    margin-right:5%;
+    margin-left: 5%;
+    padding-left: 14px;
+    padding-right: 14px;
+} /*this extra thing right here is necessary idk why*/
+} /*dont delete this pls*/
 .tab-pane {
     position:absolute;
     left: 20px;
     width: 70%;
-    border: 1px solid #337ab7;
+
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
 }
-.tab-pane > td {
-    overflow: hidden;
-    height: 500px;
-}
-.time-table{
-    width:100%;
-}
-.time-table td {
-    border-left:solid 10px transparent;
-    
-    
-}
+
+
+
 .time{
-    width: 15%;
-    border-right: rgba(255, 30, 30, .9);
+    width: 10%;
     text-align: right;
-    
-    margin-right: 7px;
+    padding-right:14px;
     white-space:nowrap;
     
 }
 .line { 
-    width:50%;
+
     border-top: 1px solid;
     border-color: rgba(140, 140, 140, .5);
 }
@@ -92,37 +65,42 @@
 .stack0 {
     position: absolute;
     z-index:2;
-    width:40%;
-    background-color: rgba(0,255,36,.5);
+    width: 35%;
+    margin-left:0%;
+    background-color: rgba(92, 184, 92, 0.5); /*green , success*/
 }
 .stack1 {
     position: absolute;
     z-index:3;
-    width:10em;
-    background-color: rgba(232,195,0,.5);
+    width: 35%;
+    margin-left:4%;
+    background-color: rgba(240, 173, 78, 0.5); /*yellow warning*/
 }
 
 .stack2 {
     position: absolute;
-    z-index:3;
-    width:10em;
-    background-color: rgba(255,61,0,.5);
+    z-index:4;
+    width: 35%;
+    margin-left:8%;
+    background-color: rgba(91, 192, 222, 0.5); /*cyan info*/
 
 }
 
-.stack 3{
+.stack3{
     position: absolute;
-    z-index:3;
-    width:10em;
-    background-color: rgba(150,0,232,.5);
+    z-index:5;
+    width: 35%;
+    margin-left:12%;
+    background-color: rgba(217, 83, 79, 0.5); /*red danger*/
 
 }
 
-.stack 4{
+.stack4{
     position: absolute;
-    z-index:3;
-    width:10em;
-    background-color: rgba(0,172,255,.5);
+    z-index:6;
+    width: 35%;
+    margin-left:16%;
+    background-color: rgba(51, 122, 183, 0.5); /*blue primary*/
 
 }
 

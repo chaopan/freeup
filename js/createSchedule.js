@@ -86,7 +86,11 @@ function inputTime(name,day,start,end){
           newArray.push(i);
     }
     newArray = removeDuplicates(newArray);
-    newArray.sort();
+    console.log("newArray before sort");
+    console.log(newArray);
+    newArray = newArray.sort(function(a, b){return a-b});
+    console.log("newArray after sort");
+    console.log(newArray);
     data[name][day] = newArray;
     
     sessionStorage.setItem(name + '-data',  JSON.stringify(data));

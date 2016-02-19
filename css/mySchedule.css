@@ -1,0 +1,129 @@
+.eventblock {
+    margin: auto;
+    width: 70%;
+    border: 1px solid #73AD21;
+    padding: 10px;
+    }
+    
+    
+    .day {
+    text-align:center;
+    margin: auto;
+    width: 30%;
+    border: 3px solid #73AD21;
+    padding: 10px;
+    }
+    .times {
+    padding-right: 20px
+    }
+    
+    .taken {
+    background: rgba(255,0,0,0.3);
+    }
+    
+    ul#tabs { display:table; table-layout: fixed; margin-bottom: -1px; margin:auto; width: 90%; padding: 0px}
+    ul#tabs li { display: table-cell;
+    text-align:center;
+    border: 1px;
+    background-color: #dedbde; 
+    border: 1px solid #c9c3ba; 
+    border-bottom: none;
+    }
+    
+    ul#tabs li a { color: #42454a; text-decoration: none; }
+    ul#tabs li a.selected { color: #000; background-color: #fff0ee; font-weight: bold;}
+    ul#tabs li :hover { background-color: #f1f0ee; }
+    div.tabContent { border: 1px solid #c9c3ba; padding: 0.5em; background-color: #f1f0ee; margin: auto; width: 90%;}
+    div.tabContent.hide { display: none; }
+    
+
+
+.nav-justified > li {
+      display: table-cell;
+      width: 1%;
+      padding: 0px;
+      font-size: 90%;
+      font-weight: bold;
+}
+.tab-pane {
+    position:absolute;
+    left: 20px;
+    width: 70%;
+    border: 1px solid #337ab7;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.tab-pane > td {
+    overflow: hidden;
+    height: 500px;
+}
+.time-table{
+    width:100%;
+}
+.time-table td {
+    border-left:solid 10px transparent;
+    
+    
+}
+.time{
+    width: 15%;
+    border-right: rgba(255, 30, 30, .9);
+    text-align: right;
+    
+    margin-right: 7px;
+    white-space:nowrap;
+    
+}
+.line { 
+    width:50%;
+    border-top: 1px solid;
+    border-color: rgba(140, 140, 140, .5);
+}
+.top-of-block {
+    border-top-left-radius : 7px;
+    border-top-right-radius : 7px;
+}
+.bottom-of-block {
+    border-bottom-left-radius : 7px;
+    border-bottom-right-radius : 7px;
+}  
+
+.stack0 {
+    position: absolute;
+    z-index:2;
+    width:40%;
+    background-color: rgba(0,255,36,.5);
+}
+.stack1 {
+    position: absolute;
+    z-index:3;
+    width:10em;
+    background-color: rgba(232,195,0,.5);
+}
+
+.stack2 {
+    position: absolute;
+    z-index:3;
+    width:10em;
+    background-color: rgba(255,61,0,.5);
+
+}
+
+.stack 3{
+    position: absolute;
+    z-index:3;
+    width:10em;
+    background-color: rgba(150,0,232,.5);
+
+}
+
+.stack 4{
+    position: absolute;
+    z-index:3;
+    width:10em;
+    background-color: rgba(0,172,255,.5);
+
+}
+
+

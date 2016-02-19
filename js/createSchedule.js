@@ -6,10 +6,9 @@
 $(document).ready(function() {
     
 	initializePageForCS();
-    
 
     
-})
+});
 
 function getUserData(){
 

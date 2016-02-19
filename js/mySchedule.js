@@ -1,5 +1,5 @@
 /* ------------------global variables (sample json)----------------- */
-var jsonObject = '{ "friend1" : { \
+/* var jsonObject = '{ "friend1" : { \
                                 "mon" : [0,1,2,4,5,8], \
                                 "tue" : [0,3,4,5], \
                                 "wed" : [1,2,4], \
@@ -17,14 +17,11 @@ var jsonObject = '{ "friend1" : { \
                                 "sat" : [6], \
                                 "sun" : [5] \
                                 } \
-                }';
+                }'; */
 //var data = JSON.parse(jsonObject);
 //sessionStorage.setItem('example', jsonObject);
-var currObj = sessionStorage.getItem("currUser");
-var username = currObj;
-var key = username + "-data";
-console.log("key is "+key);
-var exampleData = sessionStorage.getItem(key);
+var current_username = sessionStorage.getItem("currUser");
+var exampleData = sessionStorage.getItem(current_username + '-data');
 var data = JSON.parse(exampleData);
 
 

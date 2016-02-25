@@ -68,6 +68,7 @@ function authorizeLogin() {
             else{
                 jsonObject = '{ "' + userName + '" : ' + jsonTemplate + '}' ;
                 sessionStorage.setItem(userName+"-data", jsonObject);
+                sessionStorage.setItem("firstLogin","true");
                 window.location.href = "mySchedule.html"; //<--- change this to the landing page
             }
             

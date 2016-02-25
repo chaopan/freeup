@@ -16,32 +16,16 @@ img {
     height: auto;
 }
 
-.navUL {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #111;
+.navbar-nav>li, .navbar-nav {
+float: left;
+}
+.navbar-right {
+float: right!important;
+}
+.navbar-right>li button{
+    margin:5px;
 }
 
-.navLI {
-    float: left;
-}
-
-.navLI a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 6px 8px;
-    margin-top: 2px;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.navLI .border {
-    border-right: 1px solid #555;
-}
-    
 
 #logoutButton {
     background-color: #337ab7;
@@ -53,4 +37,30 @@ img {
     font-size: 11px;
     margin-top: 4px;
     margin-right: 2px;
+}
+
+#eventListContainer {
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+    margin-left:20px;
+    margin-right:20px;
+    border:1px solid #ccc;
+}
+
+.indEvents {
+    height: 40px;
+    padding:5px;
+}
+
+.indEvents button {
+    float:right;
+    margin:0px;
+    height:100%;
+    border: 2px solid white;
+}
+
+.delEvent {
+    position: relative;
+    bottom: 4px;
 }

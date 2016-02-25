@@ -14,7 +14,7 @@
       
     <div class="createContent">
         <div class="createScheduleForm">       
-            <h2>Create Schedule</h2>
+            <h2>What times are you busy?</h2>
             <p>Enter the times you are busy:</p>
             
             <form id="scheduleForm" name="scheduleForm" action="" method="POST">
@@ -37,19 +37,24 @@
                 <input type="time" id="endTime" class="form-control" name="end" step="1800" value="08:00" required>
                 <br>
                 <input type="button" class="btn btn-primary" id="submitButton" value="Submit" onclick="validateForm();">
-                <button class="btn btn-md btn-primary" type="cancel" id ="cancelButn" onclick="cancel()" style="margin-left:20px">Cancel</button>
+                <input type="button" class="btn btn-primary" id ="cancelButn"  value="Cancel"  onclick="cancel()" style="margin-left:20px">
             </form>
             <div id="createFeedback"></div>
+            
 
           </div>
           
     </div>
       
+      <div id="eventListContainer">
+        <!--handlebars here-->
+    </div>
+      
     
-    <!--Bootstrap-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/handlebars-v4.0.5.js"></script>
+    <!--Libraries-->
+    <script src="lib/jquery-1.12.1.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/handlebars-v4.0.5.js"></script>
 
     <script src="js/navbar.js"></script>
     <script src="js/createSchedule.js"></script>

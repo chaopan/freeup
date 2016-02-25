@@ -29,6 +29,15 @@ var scheduleData = JSON.parse(exampleData);
 /* ---------- Page Load Function --------------*/
 $(document).ready(function() {
 	console.log("Javascript connected!");
+    //for first login, show landing page
+      var firstLogin = sessionStorage.getItem("firstLogin");
+    console.log ("in function");
+    if(firstLogin=="true"){
+
+        $('#landingModal').modal('show');
+        sessionStorage.setItem("firstLogin","false");
+    }
+
     
     
     drawFriends();
@@ -220,4 +229,36 @@ function toggleFriend(){
     
     
 }
+
+
+
+var currentIndex = 0,
+  items = $('.slider div'),
+  itemAmt = items.length;
+
+function cycleItems() {
+  var item = $('.slider div').eq(currentIndex);
+  items.hide();
+  item.css('display','inline-block');
+}
+
+
+
+$('.control_next').click(function() {
+  
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+});
+
+$('.control_prev').click(function() {
+ 
+  currentIndex -= 1;
+  if (currentIndex < 0) {
+    currentIndex = itemAmt - 1;
+  }
+  cycleItems();
+});
 

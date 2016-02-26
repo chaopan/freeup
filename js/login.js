@@ -46,7 +46,7 @@ function signUpUser() {
                 window.location.href = "mySchedule.html"; //<--- change this to the landing page
             }
         
-        window.location.href = 'index.html';
+       // window.location.href = 'index.html';
     }
         
 }

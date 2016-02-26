@@ -243,7 +243,7 @@ function inputTime(name,day,start,end){
     data[name][day] = newArray;
     
     sessionStorage.setItem(name + '-data',  JSON.stringify(data));
-    window.location.href = 'mySchedule.html';
+   // window.location.href = 'mySchedule.html';
 }
 
 function removeDuplicates(duplicatesArray){

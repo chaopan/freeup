@@ -185,6 +185,9 @@ function validateForm(){
     
     var current_username = sessionStorage.getItem('currUser');
     inputTime(current_username, day, start_digit, end_digit);
+    getAllEvents();
+
+    displayEvents();
     $('#createFeedback').html('<p style="color:green;text-align:center;">Successfully Added Event!</p>');
 }
 

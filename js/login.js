@@ -36,7 +36,7 @@ function signUpUser() {
 
         console.log("user name is : " + userName+" passWord is : " + passWord);
         
-        window.location.href = 'index.html';
+        window.location.href = 'mySchedule.html';
     }
         
 }
